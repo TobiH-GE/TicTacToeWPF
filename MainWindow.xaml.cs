@@ -54,49 +54,20 @@ namespace TicTacToeWPF
 
             switch (((Label)sender).Name.ToString())
             {
-                case "Label0":
-                    {
-                        point.y = 0; point.x = 0; game.Turn(point); DrawBoard();  return;
-                    }
-                case "Label1":
-                    {
-                        point.y = 0; point.x = 1; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label2":
-                    {
-                        point.y = 0; point.x = 2; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label3":
-                    {
-                        point.y = 1; point.x = 0; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label4":
-                    {
-                        point.y = 1; point.x = 1; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label5":
-                    {
-                        point.y = 1; point.x = 2; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label6":
-                    {
-                        point.y = 2; point.x = 0; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label7":
-                    {
-                        point.y = 2; point.x = 1; game.Turn(point); DrawBoard(); return;
-                    }
-                case "Label8":
-                    {
-                        point.y = 2; point.x = 2; game.Turn(point); DrawBoard(); return;
-                    }
-
+                case "Label0": {point.y = 0; point.x = 0; game.Turn(point); break;}                                               
+                case "Label1": {point.y = 0; point.x = 1; game.Turn(point); break;}                                               
+                case "Label2": {point.y = 0; point.x = 2; game.Turn(point); break;}                                               
+                case "Label3": {point.y = 1; point.x = 0; game.Turn(point); break;}                                               
+                case "Label4": {point.y = 1; point.x = 1; game.Turn(point); break;}                                               
+                case "Label5": {point.y = 1; point.x = 2; game.Turn(point); break;}                                               
+                case "Label6": {point.y = 2; point.x = 0; game.Turn(point); break;}                                               
+                case "Label7": {point.y = 2; point.x = 1; game.Turn(point); break;}                                               
+                case "Label8": {point.y = 2; point.x = 2; game.Turn(point); break;}
                 default:
                     lblStatus.Content = "Error";
-                    DrawBoard();
                     return;
             }
-  
+            DrawBoard();
         }
 
         private void DrawBoard()
