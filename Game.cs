@@ -11,20 +11,11 @@ namespace TicTacToeWPF
         public bool currentPlayerID = false;
         public string[] playerNames = new string[] { "Player 1", "Player 2" };
         public byte turnNumber = 1;
-        public Window UIGame;               // UserInterface des Spiels
-        public Status status;
 
         public Game ()
         {
-            for (int y = 0; y < 3; y++)
-            {
-                for (int x = 0; x < 3; x++)
-                {
-                    board[y, x] = FieldState.E;
-                }
-            }
+            ResetBoard();
         }
-
         public FieldState[,] getBoard()
         {
             return board;
