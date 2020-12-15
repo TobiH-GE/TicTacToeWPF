@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="TicTacToe WPF by TobiH" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
@@ -33,7 +33,7 @@
             <Label Name="Label7" Grid.Row="2" Grid.Column="1" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
             <Label Name="Label8" Grid.Row="2" Grid.Column="2" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
         </Grid>
-        <Label Content="TicTacToe WPF by TobiH" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="TicTacToe" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Label Name="lblRound" Content="R" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
         <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
         <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top"/>
