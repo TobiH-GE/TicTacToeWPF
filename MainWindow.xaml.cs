@@ -76,11 +76,15 @@ namespace TicTacToeWPF
             {
                 for (int x = 0; x < 3; x++)
                 {
+                    if (game.board[y, x] == FieldState.O) labelArray[y, x].Foreground = Brushes.Blue;
+                    else if (game.board[y, x] == FieldState.X) labelArray[y, x].Foreground = Brushes.Red;
+                    else labelArray[y, x].Foreground = Brushes.Gray;
                     labelArray[y, x].Content = game.board[y, x].ToString();
                 }
             }
 
             lblRound.Content = $"round: {game.turnNumber}";
+            lblPlayer.Foreground = game.currentPlayerID ? Brushes.Red : Brushes.Blue;
             lblPlayer.Content = $"{game.playerNames[game.currentPlayerID ? 1 : 0]}, it's your turn!";
 
             Point hint = game.DrawHint();
