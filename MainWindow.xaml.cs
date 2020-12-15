@@ -52,22 +52,13 @@ namespace TicTacToeWPF
         {
             Point point = new Point();
 
-            switch (((Label)sender).Name.ToString())
+            for (sbyte y = 0; y < 3; y++)
             {
-                case "Label0": {point.y = 0; point.x = 0; game.Turn(point); break;}                                               
-                case "Label1": {point.y = 0; point.x = 1; game.Turn(point); break;}                                               
-                case "Label2": {point.y = 0; point.x = 2; game.Turn(point); break;}                                               
-                case "Label3": {point.y = 1; point.x = 0; game.Turn(point); break;}                                               
-                case "Label4": {point.y = 1; point.x = 1; game.Turn(point); break;}                                               
-                case "Label5": {point.y = 1; point.x = 2; game.Turn(point); break;}                                               
-                case "Label6": {point.y = 2; point.x = 0; game.Turn(point); break;}                                               
-                case "Label7": {point.y = 2; point.x = 1; game.Turn(point); break;}                                               
-                case "Label8": {point.y = 2; point.x = 2; game.Turn(point); break;}
-                default:
-                    lblStatus.Content = "Error";
-                    return;
+                for (sbyte x = 0; x < 3; x++)
+                {
+                    if (labelArray[y, x] == ((Label)sender)) { point.y = y; point.x = x; game.Turn(point); DrawBoard(); return; };
+                }
             }
-            DrawBoard();
         }
 
         private void DrawBoard()
