@@ -131,7 +131,7 @@ namespace TicTacToeWPF
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            music.Open(new Uri("./jazz.mp3", UriKind.Relative));
+            music.Open(new Uri("./music.mp3", UriKind.Relative));
             music.Play();
         }
 
