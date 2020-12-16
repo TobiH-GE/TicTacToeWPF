@@ -12,7 +12,7 @@
             <ColumnDefinition Width="500"/>
         </Grid.ColumnDefinitions>
         
-        <Grid Grid.Row="0" Grid.Column="1" Margin="25">
+        <Grid Grid.Row="0" Grid.Column="1" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="150"/>
@@ -23,15 +23,15 @@
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
-            <Label Name="Label0" Grid.Row="0" Grid.Column="0" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label1" Grid.Row="0" Grid.Column="1" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label2" Grid.Row="0" Grid.Column="2" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label3" Grid.Row="1" Grid.Column="0" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label4" Grid.Row="1" Grid.Column="1" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label5" Grid.Row="1" Grid.Column="2" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label6" Grid.Row="2" Grid.Column="0" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label7" Grid.Row="2" Grid.Column="1" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
-            <Label Name="Label8" Grid.Row="2" Grid.Column="2" Content="-" HorizontalAlignment="Center" VerticalAlignment="center" MouseUp="Label_MouseUp" FontSize="72"/>
+            <Button Name="Button0" Grid.Row="0" Grid.Column="0" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button1" Grid.Row="0" Grid.Column="1" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button2" Grid.Row="0" Grid.Column="2" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button3" Grid.Row="1" Grid.Column="0" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button4" Grid.Row="1" Grid.Column="1" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button5" Grid.Row="1" Grid.Column="2" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button6" Grid.Row="2" Grid.Column="0" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button7" Grid.Row="2" Grid.Column="1" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
+            <Button Name="Button8" Grid.Row="2" Grid.Column="2" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
         </Grid>
         <Label Content="TicTacToe" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Label Name="lblRound" Content="R" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>

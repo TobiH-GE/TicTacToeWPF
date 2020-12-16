@@ -26,29 +26,29 @@ namespace TicTacToeWPF
     public partial class MainWindow : Window
     {
         Game game = new Game();
-        Label[,] labelArray = new Label[3,3];
+        Button[,] buttonArray = new Button[3,3];
         public MainWindow()
         {
             InitializeComponent();
 
-            labelArray[0, 0] = Label0;
-            labelArray[0, 1] = Label1;
-            labelArray[0, 2] = Label2;
-            labelArray[1, 0] = Label3;
-            labelArray[1, 1] = Label4;
-            labelArray[1, 2] = Label5;
-            labelArray[2, 0] = Label6;
-            labelArray[2, 1] = Label7;
-            labelArray[2, 2] = Label8;
+            buttonArray[0, 0] = Button0;
+            buttonArray[0, 1] = Button1;
+            buttonArray[0, 2] = Button2;
+            buttonArray[1, 0] = Button3;
+            buttonArray[1, 1] = Button4;
+            buttonArray[1, 2] = Button5;
+            buttonArray[2, 0] = Button6;
+            buttonArray[2, 1] = Button7;
+            buttonArray[2, 2] = Button8;
 
             DrawBoard();
         }
         public void PrintHint(sbyte x, sbyte y)
         {
-            labelArray[(int)y, (int)x].Content = "H";
+            buttonArray[(int)y, (int)x].Content = "H";
         }
 
-        private void Label_MouseUp(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Point point = new Point();
 
@@ -56,7 +56,7 @@ namespace TicTacToeWPF
             {
                 for (sbyte x = 0; x < 3; x++)
                 {
-                    if (labelArray[y, x] == ((Label)sender)) { point.y = y; point.x = x; game.Turn(point); DrawBoard(); return; };
+                    if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; game.Turn(point); DrawBoard(); return; };
                 }
             }
         }
@@ -67,10 +67,22 @@ namespace TicTacToeWPF
             {
                 for (int x = 0; x < 3; x++)
                 {
-                    if (game.board[y, x] == FieldState.O) labelArray[y, x].Foreground = Brushes.Blue;
-                    else if (game.board[y, x] == FieldState.X) labelArray[y, x].Foreground = Brushes.Red;
-                    else labelArray[y, x].Foreground = Brushes.Gray;
-                    labelArray[y, x].Content = game.board[y, x].ToString();
+                    buttonArray[y, x].Foreground = Brushes.Gray;
+
+                    if (game.board[y, x] == FieldState.O)
+                    {
+                        buttonArray[y, x].Foreground = Brushes.Blue;
+                        buttonArray[y, x].Content = "O";
+                    }
+                    else if (game.board[y, x] == FieldState.X)
+                    {
+                        buttonArray[y, x].Foreground = Brushes.Red;
+                        buttonArray[y, x].Content = "X";
+                    }
+                    else if (game.board[y, x] == FieldState.E)
+                    {
+                        buttonArray[y, x].Content = "";
+                    }
                 }
             }
 
