@@ -10,7 +10,7 @@ namespace TicTacToeWPF
     }
     enum TurnResult
     {
-        Valid, Invalid, Tie, Win
+        NotSet, Valid, Invalid, Tie, Win
     }
     enum Status
     {

@@ -27,6 +27,7 @@ namespace TicTacToeWPF
     {
         Game game = new Game();
         Button[,] buttonArray = new Button[3,3];
+        TurnResult tResult = TurnResult.NotSet;
         public MainWindow()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace TicTacToeWPF
             {
                 for (sbyte x = 0; x < 3; x++)
                 {
-                    if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; game.Turn(point); DrawBoard(); return; };
+                    if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; tResult = game.Turn(point); DrawBoard(); return; };
                 }
             }
         }
@@ -67,8 +68,6 @@ namespace TicTacToeWPF
             {
                 for (int x = 0; x < 3; x++)
                 {
-                    buttonArray[y, x].Foreground = Brushes.Gray;
-
                     if (game.board[y, x] == FieldState.O)
                     {
                         buttonArray[y, x].Foreground = Brushes.Blue;
@@ -79,8 +78,9 @@ namespace TicTacToeWPF
                         buttonArray[y, x].Foreground = Brushes.Red;
                         buttonArray[y, x].Content = "X";
                     }
-                    else if (game.board[y, x] == FieldState.E)
+                    else
                     {
+                        buttonArray[y, x].Foreground = Brushes.Gray;
                         buttonArray[y, x].Content = "";
                     }
                 }
@@ -94,14 +94,31 @@ namespace TicTacToeWPF
             if (hint.x != -1)
                 PrintHint(hint.x, hint.y);
 
-            if (game.turnNumber == 10)
-                lblStatus.Content = "draw";
-            else if (game.turnNumber == 11)
+            if (tResult == TurnResult.Tie)
+            {
+                lblStatus.Foreground = Brushes.Gray;
+                lblStatus.Content = "tie! press restart for a new game!";
+            }
+            else if (tResult == TurnResult.Win)
+            {
+                lblStatus.Foreground = game.currentPlayerID ? Brushes.Red : Brushes.Blue;
                 lblStatus.Content = $"{game.playerNames[game.currentPlayerID ? 1 : 0]}, won the game!"; ;
+            }
+            else if (tResult == TurnResult.NotSet)
+            {
+                lblStatus.Foreground = Brushes.Gray;
+                lblStatus.Content = "game started!";
+            }
+            else if (tResult == TurnResult.Valid)
+            {
+                lblStatus.Foreground = Brushes.Gray;
+                lblStatus.Content = "valid turn, next player!";
+            }
         }
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
+            tResult = TurnResult.NotSet;
             game.ResetBoard();
             DrawBoard();
         }

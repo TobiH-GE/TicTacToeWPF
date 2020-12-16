@@ -35,12 +35,13 @@ namespace TicTacToeWPF
 
             if (CheckWin(board[point.y, point.x]))      // Gewonnen?
             {
-                turnNumber = 11;                        // Runde auf 11 heisst gewonnen
                 return TurnResult.Win;
             }
 
-            turnNumber++;
+            if (turnNumber == 9)
+                return TurnResult.Tie;
 
+            turnNumber++;
             currentPlayerID = !currentPlayerID;     // Spieler wechseln
             return TurnResult.Valid;        // zurück, Spielzug ok
         }
