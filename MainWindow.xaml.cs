@@ -46,7 +46,8 @@ namespace TicTacToeWPF
         }
         public void PrintHint(sbyte x, sbyte y)
         {
-            buttonArray[(int)y, (int)x].Content = "H";
+            buttonArray[y, x].Foreground = Brushes.Gray;
+            buttonArray[y, x].Content = "H";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -80,7 +81,6 @@ namespace TicTacToeWPF
                     }
                     else
                     {
-                        buttonArray[y, x].Foreground = Brushes.Gray;
                         buttonArray[y, x].Content = "";
                     }
                 }
