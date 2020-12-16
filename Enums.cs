@@ -12,12 +12,4 @@ namespace TicTacToeWPF
     {
         NotSet, Valid, Invalid, Tie, Win
     }
-    enum Status
-    {
-        Started, Stopped, Win, Tie
-    }
-    enum Direction
-    {
-        Up, Down, Left, Right
-    }
 }
