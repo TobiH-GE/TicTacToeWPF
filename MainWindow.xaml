@@ -38,5 +38,6 @@
         <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
         <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top"/>
         <Button Name="btnRestart" Content="Restart" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Click="btnRestart_Click"/>
+        <CheckBox Content="music" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
     </Grid>
 </Window>

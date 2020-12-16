@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +29,8 @@ namespace TicTacToeWPF
         Game game = new Game();
         Button[,] buttonArray = new Button[3,3];
         TurnResult tResult = TurnResult.NotSet;
+        private MediaPlayer music = new MediaPlayer();
+        private MediaPlayer clickSound = new MediaPlayer();
         public MainWindow()
         {
             InitializeComponent();
@@ -58,6 +61,9 @@ namespace TicTacToeWPF
             {
                 for (sbyte x = 0; x < 3; x++)
                 {
+                    clickSound.Open(new Uri(@"./click.mp3", UriKind.Relative));
+                    clickSound.Play();
+
                     if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; tResult = game.Turn(point); DrawBoard(); return; };
                 }
             }
@@ -121,6 +127,17 @@ namespace TicTacToeWPF
             tResult = TurnResult.NotSet;
             game.ResetBoard();
             DrawBoard();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            music.Open(new Uri("./jazz.mp3", UriKind.Relative));
+            music.Play();
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            music.Stop();
         }
     }
 }
