@@ -35,6 +35,8 @@ namespace TicTacToeWPF
         {
             InitializeComponent();
 
+            clickSound.Open(new Uri(@"./click.mp3", UriKind.Relative));
+
             buttonArray[0, 0] = Button0;
             buttonArray[0, 1] = Button1;
             buttonArray[0, 2] = Button2;
@@ -64,7 +66,7 @@ namespace TicTacToeWPF
             {
                 for (sbyte x = 0; x < 3; x++)
                 {
-                    clickSound.Open(new Uri(@"./click.mp3", UriKind.Relative));
+                    clickSound.Position = TimeSpan.Zero;
                     clickSound.Play();
                     if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; tResult = game.Turn(point); DrawBoard(); return; };
                 }
