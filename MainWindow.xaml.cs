@@ -47,7 +47,7 @@ namespace TicTacToeWPF
 
             DrawBoard();
         }
-        public void PrintHint(sbyte x, sbyte y)
+        private void PrintHint(sbyte x, sbyte y)
         {
             buttonArray[y, x].Foreground = Brushes.Gray;
             buttonArray[y, x].Content = "H";
@@ -55,6 +55,9 @@ namespace TicTacToeWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (tResult == TurnResult.Win || tResult == TurnResult.Tie)
+                return;
+
             Point point = new Point();
 
             for (sbyte y = 0; y < 3; y++)
@@ -63,7 +66,6 @@ namespace TicTacToeWPF
                 {
                     clickSound.Open(new Uri(@"./click.mp3", UriKind.Relative));
                     clickSound.Play();
-
                     if (buttonArray[y, x] == ((Button)sender)) { point.y = y; point.x = x; tResult = game.Turn(point); DrawBoard(); return; };
                 }
             }
