@@ -51,14 +51,15 @@
             <Button Name="Button7" Grid.Row="2" Grid.Column="1" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
             <Button Name="Button8" Grid.Row="2" Grid.Column="2" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="0">
-            <Label Content="TicTacToe" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="32" FontWeight="Bold"/>
-            <Label Name="lblRound" Content="{Binding Path=game.turnNumber}" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
-            <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
-            <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top"/>
-            <Button Name="btnRestart" Content="Restart" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Click="btnRestart_Click"/>
-            <CheckBox Content="music" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-        </Grid>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Label Content="TicTacToe" HorizontalAlignment="Center" FontSize="32" FontWeight="Bold"/>
+            <Label Name="lblRoundText" Content="Runde: " HorizontalAlignment="Center"/>
+            <Label Name="lblRound" Content="{Binding Path=Round}" HorizontalAlignment="Center"/>
+            <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center"/>
+            <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center"/>
+            <Button Name="btnRestart" Content="Restart" HorizontalAlignment="Center" Click="btnRestart_Click"/>
+            <CheckBox Content="music" HorizontalAlignment="Center" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        </StackPanel>
     </Grid>
     
 </Window>

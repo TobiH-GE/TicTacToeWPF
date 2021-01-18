@@ -30,6 +30,7 @@ namespace TicTacToeWPF
         public event PropertyChangedEventHandler PropertyChanged;
 
         Game game = new Game();
+        int _round;
         Button[,] buttonArray = new Button[3,3];
         TurnResult tResult = TurnResult.NotSet;
         private MediaPlayer music = new MediaPlayer();
@@ -53,6 +54,15 @@ namespace TicTacToeWPF
 
             DrawBoard();
         }
+        public int Round
+        {
+            get { return _round; }
+            set {
+                _round = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Round"));
+            }
+        }
+
         private void PrintHint(sbyte x, sbyte y)
         {
             buttonArray[y, x].Foreground = Brushes.Gray;
@@ -100,8 +110,7 @@ namespace TicTacToeWPF
                 }
             }
 
-            //lblRound.Content = $"round: {game.turnNumber}";
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("game.turnNumber"));
+            Round = game.turnNumber;
             lblPlayer.Foreground = game.currentPlayerID ? Brushes.Red : Brushes.Blue;
             lblPlayer.Content = $"{game.playerNames[game.currentPlayerID ? 1 : 0]}, it's your turn!";
 
