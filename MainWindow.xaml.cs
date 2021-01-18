@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -24,8 +25,10 @@ namespace TicTacToeWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         Game game = new Game();
         Button[,] buttonArray = new Button[3,3];
         TurnResult tResult = TurnResult.NotSet;
@@ -34,6 +37,7 @@ namespace TicTacToeWPF
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
 
             clickSound.Open(new Uri(@"./click.mp3", UriKind.Relative));
 
@@ -96,7 +100,8 @@ namespace TicTacToeWPF
                 }
             }
 
-            lblRound.Content = $"round: {game.turnNumber}";
+            //lblRound.Content = $"round: {game.turnNumber}";
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("game.turnNumber"));
             lblPlayer.Foreground = game.currentPlayerID ? Brushes.Red : Brushes.Blue;
             lblPlayer.Content = $"{game.playerNames[game.currentPlayerID ? 1 : 0]}, it's your turn!";
 
@@ -142,6 +147,17 @@ namespace TicTacToeWPF
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             music.Stop();
+        }
+
+        private void New_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            tResult = TurnResult.NotSet;
+            game.ResetBoard();
+            DrawBoard();
+        }
+        private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

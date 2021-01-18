@@ -5,14 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToeWPF"
         mc:Ignorable="d"
-        Title="TicTacToe WPF by TobiH" Height="500" Width="800">
+        Title="TicTacToe WPF by TobiH" Height="500" Width="800"
+        x:Name="GameMainWindow">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="New_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="Close_Executed"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="500"/>
         </Grid.ColumnDefinitions>
-        
-        <Grid Grid.Row="0" Grid.Column="1" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu x:Name="Menu" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <MenuItem Header="Datei">
+                <MenuItem Header="Neu" Command="ApplicationCommands.New"/>
+                <MenuItem Header="Speichern" />
+                <Separator />
+                <MenuItem Header="Beenden" Command="ApplicationCommands.Close" />
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="150"/>
@@ -33,11 +51,14 @@
             <Button Name="Button7" Grid.Row="2" Grid.Column="1" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
             <Button Name="Button8" Grid.Row="2" Grid.Column="2" Content="-" Width="145" Height="145" HorizontalAlignment="Center" VerticalAlignment="center" Click="Button_Click" FontSize="72"/>
         </Grid>
-        <Label Content="TicTacToe" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
-        <Label Name="lblRound" Content="R" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
-        <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
-        <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top"/>
-        <Button Name="btnRestart" Content="Restart" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Click="btnRestart_Click"/>
-        <CheckBox Content="music" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Label Content="TicTacToe" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="32" FontWeight="Bold"/>
+            <Label Name="lblRound" Content="{Binding Path=game.turnNumber}" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"/>
+            <Label Name="lblPlayer" Content="Player" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top"/>
+            <Label Name="lblStatus" Content="Status" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top"/>
+            <Button Name="btnRestart" Content="Restart" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Click="btnRestart_Click"/>
+            <CheckBox Content="music" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        </Grid>
     </Grid>
+    
 </Window>
